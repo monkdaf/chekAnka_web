@@ -10,8 +10,23 @@
     "server": "babel-node server/app.js"
   },
   "dependencies": {
-    "babel": "^6.5.2",
+    "body-parser": "^1.15.0",
+    "cors": "^2.7.1",
     "express": "^4.13.4",
-    "mongoose": "^4.4.10"
-  }
+    "mongoose": "^4.4.10",
+    "react": "^0.14.7",
+    "react-dom": "^0.14.7"
+  },
+  "devDependencies": {
+    "babel": "^6.5.2",
+    "babel-loader": "^6.*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/monkdaf/chekAnka_web.git"
+  },
+  "bugs": {
+    "url": "https://github.com/monkdaf/chekAnka_web/issues"
+  },
+  "homepage": "https://github.com/monkdaf/chekAnka_web#readme"
 }
