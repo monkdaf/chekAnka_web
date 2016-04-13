@@ -41,6 +41,22 @@ app.get('/articles', function (req, res) {
     });
 });
 
+app.get('/test', function (req, res) {
+    res.send('<h1>daf</h1>');
+});
+
+app.get('/add-article', function (req, res) {
+    var newdata = {};
+    newdata.available = 'yes';
+    newdata.id = '999999';
+    newdata.vendorCode = '9997';
+    newdata.name = 'Тестовая запись №3';
+
+    db.createArticle(newdata).then(function (data) {
+        return res.send(data);
+    });
+});
+
 app.post('/article', function (req, res) {
     db.createArticle(req.body).then(function (data) {
         return res.send(data);
