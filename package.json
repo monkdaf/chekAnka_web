@@ -2,7 +2,7 @@
   "name": "chekanka",
   "version": "0.0.1",
   "description": "Приложение для облегчения работы с ChekAnka",
-  "main": "index.js",
+  "main": "app.js",
   "author": "daf",
   "license": "ISC",
   "scripts": {

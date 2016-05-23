@@ -18,13 +18,43 @@ app.use( bodyParser.json() );
 // Allow requests from any origin
 app.use(cors({ origin: '*' }));
 
+// common request
+app.get('/', (req, res) => {
+    //let html = "<h1>Hello from daf</h1>"
+    var options = {
+        root: './',
+        dotfiles: 'deny',
+        };
+    let filename='index.html';
+    res.sendFile(filename, options, (err) => {
+        if (err) {
+            console.log(err);
+            res.status(err.status).end();
+        }
+        else {
+            console.log('Sent:', options.root+filename);
+        }
+    });
+    //app.static('../', index);
+});
+
+
 // RESTful api handlers
 app.get('/articles', (req, res) => {
     db.listArticles().then(data => res.send(data));
 });
+//var html = "<p>"+"ddd"+"</p>";
 
 app.get('/test', (req, res) => {
-    res.send('<h1>daf</h1>');
+    db.listArticles().then(data => {
+        var html="";
+        data.forEach(function(item, i, arr) {
+            html += "<p>" + item.name + "</p>";
+        });
+        res.send('<h1>daf</h1>'+html);
+    });
+
+    //res.send('<h1>daf</h1>');
 });
 
 app.get('/add-article', (req, res) => {
